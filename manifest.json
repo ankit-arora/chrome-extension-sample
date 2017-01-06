@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "name": "Chrome Extension sample",
+  "short_name": "Extension",
+  "default_locale": "en",
+  "icons": {
+    "16": "public/strike16.png",
+    "48": "public/strike48.png",
+    "128": "public/strike128.png"
+  },
+  "description": "Sample extension",
+  "permissions": [
+    "storage",
+    "tabs" ,
+    "cookies",
+    "background",
+    "http://mail.google.com/*",
+    "https://mail.google.com/*",
+    "https://accounts.google.com/*",
+    "https://www.googleapis.com/*",
+    "http://*.getstrike.co/",
+    "https://*.getstrike.co/",
+    "*://*.googleusercontent.com/proxy/*",
+    "gcm",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "content_scripts": [{
+    "js": [
+      "public/contentScript.js"
+    ],
+    "matches": [
+      "http://mail.google.com/*",
+      "https://mail.google.com/*"
+    ],
+    "run_at": "document_end"
+  }],
+ "web_accessible_resources": ["public/**"],
+ "content_security_policy": "script-src 'self' https://static.getstrike.co; object-src 'self';"
+}
