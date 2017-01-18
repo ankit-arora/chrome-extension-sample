@@ -17,7 +17,6 @@ function raiseEvent(name, properties){
     var elt = document.createElement("script");
     var evtData = 'window.clevertap.event.push("' + name + '",'+ properties + ');';
     elt.innerHTML = evtData;
-    debugger;
     document.head.appendChild(elt);
 }
 
